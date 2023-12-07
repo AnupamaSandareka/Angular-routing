@@ -1,0 +1,13 @@
+<nav class="navbar navbar-expand-sm bg-dark justify-content-center">
+    <ul class="navbar-nav">
+        <li class="nav-item" *ngFor="let menu of filteredMenus">
+            <a class="nav-link text-white" [routerLink]="menu.path">{{menu.text}}</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container-fluid mt-3">
+    Logged in Role {{role}}
+    <router-outlet></router-outlet>
+    
+</div>
