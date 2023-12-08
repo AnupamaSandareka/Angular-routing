@@ -22,20 +22,16 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: LayComponent,
+    component: AdminLayoutComponent,
     children: [
-      { 
-        path: 'dashboard', component:DashboardComponent
-      }
+      { path: 'clients', component: ClientsComponent }, //admin
+      { path: 'users', component: UsersComponent }, //admin + client
+      { path: 'packages', component: PackagesComponent }, //admin
+      { path: 'clientPackages', component: ClientPackagesComponent }, //admin
+      { path: 'dashboard', component: DashboardComponent }, //admin + client
+      { path: 'rooms', component: RoomsComponent }, //client
+      { path: 'booking', component: RoomBookingComponent } //client
     ]
-      // { path: 'clients', component: ClientsComponent }, //admin
-      // { path: 'users', component: UsersComponent }, //admin + client
-      // { path: 'packages', component: PackagesComponent }, //admin
-      // { path: 'clientPackages', component: ClientPackagesComponent }, //admin
-      // { path: 'dashboard', component: DashboardComponent }, //admin + client
-      // { path: 'rooms', component: RoomsComponent }, //client
-      // { path: 'booking', component: RoomBookingComponent } //client
-    
   },
   {
     path: '**', component: LoginComponent

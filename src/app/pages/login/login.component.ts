@@ -25,13 +25,24 @@ export class LoginComponent {
     this.httpClient.post("https://freeapi.miniprojectideas.com/api/User/Login", this.loginObj).subscribe((response: any) => {
 
       if (response.result) {
-        alert("login success");
-        localStorage.setItem('loginToken', response.data.token);
-        this.router.navigateByUrl('/dashboard');
+        localStorage.setItem('localData' , JSON.stringify(response.data));
+        this.router.navigateByUrl('dashboard');
+        // if(response.data.role == "Admin"){
+        //   this.router.navigateByUrl("dashboard")
+        // }
+        // else if (response.data.role == "ClientAdmin") {
+        //   this.router.navigateByUrl("Client-Dashboard")
+        // }
+        // else if (response.data.role == "ClientUser"){
+        //   this.router.navigateByUrl("UserDashboard")
+        // }
+        // else{
+        //   alert(response.message);
+        // }
         
       }
       else {
-        alert(response.message);
+        alert("Empty response.");
       }
     })
   }
